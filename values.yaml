@@ -9,11 +9,6 @@ opencost:
     # Default cluster configuration
     defaultClusterId: "gcp-cluster"
     
-    # Prometheus configuration
-    prometheus:
-      external:
-        url: "http://prometheus-kube-prometheus-prometheus.prometheus.svc:9090"
-    
     # GCP Cloud provider configuration
     cloudProviderApiKey: ""  # Will be set via secret
     
