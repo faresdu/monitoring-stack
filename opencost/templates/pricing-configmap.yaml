@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: opencost-pricing
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app.kubernetes.io/name: opencost
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/component: pricing
+data:
+  gcp.json: |
+    {
+      "provider": "GCP",
+      "description": "Default GCP pricing",
+      "CPU": "0.031611",
+      "RAM": "0.004237", 
+      "GPU": "0.700000",
+      "storage": "0.000137",
+      "zoneNetworkEgress": "0.01",
+      "regionNetworkEgress": "0.01",
+      "internetNetworkEgress": "0.12",
+      "loadBalancer": "0.025"
+    }

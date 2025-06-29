@@ -1,0 +1,93 @@
+# OpenCost Helm Chart Configuration for GCP
+opencost:
+  exporter:
+    image:
+      registry: ghcr.io
+      repository: opencost/opencost
+      tag: v1.115.0
+    
+    # Default cluster configuration
+    defaultClusterId: "gcp-cluster"
+    
+    # GCP Cloud provider configuration
+    cloudProviderApiKey: ""  # Will be set via secret
+    
+    # Additional environment variables for GCP
+    env:
+      - name: CLOUD_PROVIDER_API_KEY
+        valueFrom:
+          secretKeyRef:
+            name: gcp-service-account
+            key: api-key
+            optional: true
+      - name: GCP_PROJECT_ID
+        value: "digital-yeti-463708-m2"  # Replace with your actual GCP project ID
+      - name: GCP_BILLING_ACCOUNT_ID
+        value: "0168B7-BD12A4-76CF27"  # Replace with your actual billing account ID
+      - name: GOOGLE_APPLICATION_CREDENTIALS
+        value: "/etc/gcp/service-account.json"
+      - name: CONFIG_PATH
+        value: "/etc/opencost/pricing"
+      - name: EMIT_KSM_V1_METRICS
+        value: "false"
+      - name: EMIT_KSM_V1_METRICS_ONLY
+        value: "false"
+    
+    # Volume mounts for GCP credentials
+    extraVolumes:
+      - name: gcp-config
+        secret:
+          secretName: gcp-service-account
+          optional: true
+      - name: cloud-config
+        configMap:
+          name: opencost-cloud-config
+    
+    extraVolumeMounts:
+      - name: gcp-config
+        mountPath: /etc/gcp
+        readOnly: true
+      - name: cloud-config
+        mountPath: /etc/opencost/cloud
+        readOnly: true
+
+  ui:
+    enabled: true
+    image:
+      registry: ghcr.io
+      repository: opencost/opencost
+      tag: v1.115.0
+
+  # Service Monitor for Prometheus
+  serviceMonitor:
+    enabled: true
+    interval: "1m"
+    timeout: "10s"
+    honorLabels: true
+
+  # Pricing configuration
+  pricing:
+    gcp.json: |
+      {
+        "provider": "GCP",
+        "description": "Default GCP pricing",
+        "CPU": "0.031611",
+        "RAM": "0.004237",
+        "GPU": "0.700000",
+        "storage": "0.000137",
+        "zoneNetworkEgress": "0.01",
+        "regionNetworkEgress": "0.01",
+        "internetNetworkEgress": "0.12",
+        "loadBalancer": "0.025"
+      }
+
+# GCP Configuration
+gcp:
+  enabled: true
+  projectId: "digital-yeti-463708-m2"  # Replace with your actual GCP project ID
+  billingAccountId: "0168B7-BD12A4-76CF27"  # Replace with your actual billing account ID
+  # serviceAccountKey: ""  # Base64 encoded service account JSON - set via external secret or manually
+
+# Global settings
+global:
+  imagePullSecrets: []

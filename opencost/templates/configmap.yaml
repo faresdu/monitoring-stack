@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: opencost-cloud-config
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app.kubernetes.io/name: opencost
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/component: cloud-config
+data:
+  cloud-integration.yaml: |
+    cloudIntegrations:
+      {{- if .Values.gcp.enabled }}
+      gcp:
+        enabled: true
+        projectId: {{ .Values.gcp.projectId | quote }}
+        billingAccount: {{ .Values.gcp.billingAccountId | quote }}
+        serviceKeySecret: "gcp-service-account"
+        pricing:
+          configmapName: "opencost-pricing"
+          configPath: "/etc/opencost/pricing/gcp.json"
+      {{- end }}
