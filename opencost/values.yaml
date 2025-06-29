@@ -26,6 +26,8 @@ opencost:
         value: "0168B7-BD12A4-76CF27"  # Replace with your actual billing account ID
       - name: GOOGLE_APPLICATION_CREDENTIALS
         value: "/etc/gcp/service-account.json"
+      - name: PROMETHEUS_SERVER_ENDPOINT
+        value: ""
       - name: CONFIG_PATH
         value: "/etc/opencost/pricing"
       - name: EMIT_KSM_V1_METRICS
