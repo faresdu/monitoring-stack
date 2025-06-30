@@ -12,14 +12,10 @@ opencost:
     enabled: true
 
   prometheus:
-    service:
-      enabled: false
     external:
-      url: ""
-      port: ""
+      url: "http://prometheus-server.monitoring.svc.cluster.local"
+      port: "80"
       path: ""
 
-
   serviceMonitor:
-    enabled: true
-
+    enabled: false
