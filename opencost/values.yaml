@@ -13,7 +13,7 @@ opencost:
 
   prometheus:
     service:
-      enabled: true
+      enabled: false
 
   serviceMonitor:
     enabled: true
