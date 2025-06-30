@@ -13,7 +13,7 @@ opencost:
 
   prometheus:
     external:
-      url: "http://prometheus-server.monitoring.svc.cluster.local"
+      url: "http://meow"
       port: "80"
       path: ""
 
