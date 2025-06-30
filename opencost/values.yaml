@@ -14,6 +14,11 @@ opencost:
   prometheus:
     service:
       enabled: false
+    external:
+      url: ""
+      port: ""
+      path: ""
+
 
   serviceMonitor:
     enabled: true
