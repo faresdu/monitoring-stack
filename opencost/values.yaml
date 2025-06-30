@@ -13,9 +13,12 @@ opencost:
 
   prometheus:
     external:
-      url: "http://meow"
-      port: "80"
+      url: ""
+      port: ""
       path: ""
-
+    internal:
+      enabled: false
+    service:
+      enabled: false
   serviceMonitor:
     enabled: false
