@@ -2,9 +2,9 @@ apiVersion: v2
 name: opencost
 description: A Helm chart for deploying OpenCost to monitor GCP resource usage and costs
 type: application
-version: 1.0.0
+version: 0.1.0
 appVersion: "1.115.0"  # Replace with actual OpenCost version if needed
 dependencies:
   - name: opencost
-    version: "1.115.0"
+    version: "1.42.0"
     repository: "https://opencost.github.io/opencost-helm-chart"
