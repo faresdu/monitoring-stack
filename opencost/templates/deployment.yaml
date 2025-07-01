@@ -15,7 +15,7 @@ spec:
       containers:
         - name: opencost
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          imagePullPolicy: "{{ .Values.image.pullPolicy }}"
           ports:
             - containerPort: 9003
               name: http
@@ -25,10 +25,7 @@ spec:
             - name: OPENCOST_CLOUD_PROVIDER_API_KEY
               value: "{{ .Values.exporter.cloudProviderApiKey }}"
             - name: PROMETHEUS_SERVER_ENDPOINT
-              value: "{{ .Values.prometheusEndpoint | quote }}"
-            - name: {{ .name }}
-              value: {{ .value | quote }}
-            {{- end }}
+              value: "{{ .Values.prometheusEndpoint }}"
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
+            "{{- toYaml .Values.resources | nindent 12 }}"
 
