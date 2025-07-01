@@ -8,21 +8,6 @@ service:
   type: LoadBalancer
   port: 9003
 cloudProvider: gcp
-exporter:
-  cloudProviderApiKey: >
-    {
-      "type": "service_account",
-      "project_id": "digital-yeti-463708-m2",
-      "private_key_id": "2d3f3c4d4576e986918d113be9f7f2ace4cae034",
-      "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCl9h5EmvVOvgyE\n6TuN3jOEtrNQKC1KGH/v9LGnWWf1lve3pMzlJa6capQj6wOYkbYqnAklrlXTkshR\nqgTbmRqD2Dxax/3DeoK9uzpphDuZdJBjuE9SpTRbCSWmtQe0z7EPYTKFYGPo4VCN\nDq5iDCNZHMFrFJy6bJzeSO8c68l+KPRFSgk+cG238hdMkUEnjAfX3MR9Z5/j7xfE\nrWQ5I4TjtWgGfhBVwh22FG1S2frEbAalJuasfyi7xnEqTx+vipgApr+6xSr5/mIF\naY7SUvu0N+r4yyzlcEWychfKO41O9Z4fKVtubDwhu1jLlFQqwIO96Q7X4LtYnWWY\nERk+f0WhAgMBAAECggEAALGgusSzFdsxjjSzbQpqyLlC0qj4V4D2t/gb7gkvqBUz\nf+8OdD7OFhVT/Tp0T2T8j/0LBL9P2IyajczaLFjdhYOX7QE9DF4swcJQojRNU3zr\nRZ91pXDPYToOkD3dhGIB6YCMh4Y5pLWccpqHHB3U4ACAxoPVi+n8VemUJljOBNsB\nQMQScNdRQdxiQ1rj9DKUGrhO7aMMqyG9VgXJ+fXPFMRAFvyUToLUYHlcXqfCVETp\nCabKDE61j4zT+jPDrRz3bU1crpqXlaWgSu3X8Xa91wwGxxFa2EOx0ImxBt1I/Osi\nEZm4qFs7alv4ckztd4b+bwygfPBu9ZhBj9GGf44NYQKBgQDXmc16akOhTUTVAvaj\nxsFcP8C/D1onNdzfklGcI+eoXfF36cYRjE3JgRSovHXT6iGj/HVOtkkqwh8btodn\n3nMA9xnufSn35FeSMGr0DZ6GYGQdlgr/0HKYq+9MkKGKJH9xPITdFpAchZq6lYf7\n3t2FBksoKKDkr+Y+HzkJxgD71QKBgQDFDydXyTBxn1VRevqPSACT9SePwik3G/Al\nu5W1oZSU+j53XX66f4RRHtIiAMgjFsv3n4MosF1bKd/VbIwJN0PunG7vK5knpkWz\nSLimoI+8iEXzmq9wtTAN+eReU3iD6PJzNQ7DaMfIKrc5DYYFpwSqltv/YcZ5M7nP\nk9uAcl+EnQKBgQCS6tDVsWICoffcu9c8RW1wIlWDHMAPZinsA/Yu01zCI7ovP5Nk\nU9qSDK76SOp2DN79s0Rw7dCwHXY7WUeuJSzzJG98T7hwnx55lRrc0gcLhNXUP3Gh\nXvcoSEmaQBiEXVim3lmfmwd7GCQXL1xp6zXCt0YxyHXTQHZCMN6aZV44PQKBgAk7\nIn6sQAayjg6ZEi+wEcbcjxPe5otcVa2O0f6GKS2pY0+4I32dB5e9N9675qQuJzPc\nVwqK6HSiy4d15EFyQ05kKZYulqgS0+UIHQ5BKzqLr6svrdQ7yJp/AEGi61xShzj6\nXUyuFd28koSrq4GMR12uX3PhIqj+0U91/6xOr0bJAoGAOYgIQfNvqvrlpnICzHIo\nOdc3dwXH3mcbRfnKjnOuNbdqcPaBqSd+PYIa6PAVoiHurt6eAEJFgH14oZWh2F7V\n4p8Zm2/NGVjObFaw1htJmE86nhcLLK+DiKzSSLHQvsQx25+qvfczrplKfo50FCqt\nE8XOJq1LfAaFHRgFa2AoUzg=\n-----END PRIVATE KEY-----\n",
-      "client_email": "opencost-sa@digital-yeti-463708-m2.iam.gserviceaccount.com",
-      "client_id": "113874874961409452000",
-      "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-      "token_uri": "https://oauth2.googleapis.com/token",
-      "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-      "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/opencost-sa%40digital-yeti-463708-m2.iam.gserviceaccount.com",
-      "universe_domain": "googleapis.com"
-    }
 prometheusEndpoint: http://prometheus-kube-prometheus-prometheus.monitoring.svc.cluster.local:9090
 resources: {}
 
