@@ -12,6 +12,7 @@ spec:
       labels:
         app: opencost
     spec:
+      serviceAccountName: opencost-sa
       containers:
         - name: opencost
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
