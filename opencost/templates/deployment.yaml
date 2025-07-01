@@ -25,7 +25,7 @@ spec:
             - name: OPENCOST_CLOUD_PROVIDER_API_KEY
               value: "{{ .Values.exporter.cloudProviderApiKey }}"
             - name: PROMETHEUS_SERVER_ENDPOINT
-              value: "{{ .Values.prometheusEndpoint  }}"
+              value: "{{ .Values.prometheusEndpoint | quote }}"
             - name: {{ .name }}
               value: {{ .value | quote }}
             {{- end }}
