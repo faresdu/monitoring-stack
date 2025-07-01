@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: opencost-config
+data:
+  cluster-name: "gke-private"
+
