@@ -27,5 +27,5 @@ spec:
             - name: PROMETHEUS_SERVER_ENDPOINT
               value: "{{ .Values.prometheusEndpoint }}"
           resources:
-            "{{- toYaml .Values.resources | nindent 12 }}"
+            {{- toYaml .Values.resources | nindent 12 }}
 
