@@ -16,5 +16,4 @@ exporter:
 
 prometheusEndpoint: "http://prometheus-kube-prometheus-prometheus.monitoring.svc.cluster.local:9090"
 
-resources: {}
 
